@@ -1,0 +1,41 @@
+\documentclass{scrartcl}
+\immediate\openout13=\jobname.reintext
+
+\let\ifreintext\iftrue
+
+\ifreintext{\def\TeX{TeX}
+\def\LaTeX{LaTeX}
+\def\section#1{^^J #1 ^^J}
+\def\ { }
+\makeatletter
+\def\maketitle{
+\@title ^^J Autor: \@author
+}
+\makeatother
+\fi
+
+\title{Xe\TeX\ und Lua\TeX: Moderne Versionen eines Klassikers}
+\author{Arno Trautmann}
+
+\begin{document}
+\ifreintext\def\par{^^J}\immediate\write13{\fi
+
+\maketitle
+
+\section{Was ist \TeX/\LaTeX?}
+
+\TeX\ ist toll.
+
+\section{Seit wann gibt es \TeX?}
+
+Seit sehrsehr langer Zeit …
+
+\section{Unicode?}
+
+Das gibt es auch.
+
+\section{Moderne Schrifttechnologien}
+
+Und die erstrecht.
+\ifreintext}}\fi
+\end{document}
